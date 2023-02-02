@@ -19,3 +19,22 @@ console.log(list2);
 // let words : string[] = [1,2,3,"great"]  //gives error during compilation
 var person = ["digamnar", 56];
 console.log(person);
+// enum
+var Color;
+(function (Color) {
+    Color[Color["Red"] = 0] = "Red";
+    Color[Color["Green"] = 1] = "Green";
+    Color[Color["Blue"] = 2] = "Blue";
+})(Color || (Color = {}));
+;
+var first = Color.Red;
+var second = Color.Green;
+console.log(first);
+console.log(second);
+// variable type unknown and any
+var myVariable = 10;
+myVariable = "digambar";
+myVariable = true;
+var newVar = "digambar";
+newVar.toUpperCase(); // error  newVar of type unknown
+console.log(newVar.toUpperCase());

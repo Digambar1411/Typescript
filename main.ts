@@ -26,3 +26,23 @@ console.log(list2)
 
 let person: [string,number]= ["digamnar",56]
 console.log(person)
+
+
+// enum
+
+enum Color {Red, Green, Blue};
+let first :Color = Color.Red;
+let second :Color = Color.Green;
+console.log(first);
+console.log(second);
+
+// variable type unknown and any
+
+let myVariable: any =10;
+myVariable="digambar";
+myVariable=true;
+
+let newVar : unknown= "digambar";
+
+newVar.toUpperCase(); // error  newVar of type unknown
+console.log((newVar as string).toUpperCase());
