@@ -15,3 +15,14 @@ let place:string ="Belgaum"
 let sentence :string = `my tite is ${title}`
 console.log(sentence)
 
+
+let list1 :number[]=[1,2,3,54];
+let list2 : Array<number> = [11,12,13]
+
+console.log(list1)
+console.log(list2)
+
+// let words : string[] = [1,2,3,"great"]  //gives error during compilation
+
+let person: [string,number]= ["digamnar",56]
+console.log(person)
