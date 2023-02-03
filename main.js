@@ -2,7 +2,7 @@
 exports.__esModule = true;
 var name = "digambar welcome back to the team";
 // console.log(name);
-// variable declaration 
+// variable declaration
 var x = 10;
 var y = 5;
 var title = "Codevolution";
@@ -26,7 +26,6 @@ var Color;
     Color[Color["Green"] = 1] = "Green";
     Color[Color["Blue"] = 2] = "Blue";
 })(Color || (Color = {}));
-;
 var first = Color.Red;
 var second = Color.Green;
 console.log(first);
@@ -38,3 +37,21 @@ myVariable = true;
 var newVar = "digambar";
 newVar.toUpperCase(); // error  newVar of type unknown
 console.log(newVar.toUpperCase());
+// functions
+function add(num1, num2) {
+    if (num2) {
+        return num1 + num2;
+    }
+    else {
+        return num1;
+    }
+}
+console.log(add(4, 5));
+function fullName(person) {
+    console.log("".concat(person.firstName, " ").concat(person.lastName));
+}
+var p = {
+    firstName: "Digambar",
+    lastName: "Deshawal"
+};
+fullName(p);
