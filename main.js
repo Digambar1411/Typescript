@@ -55,3 +55,14 @@ var p = {
     lastName: "Deshawal"
 };
 fullName(p);
+// class
+var Car = /** @class */ (function () {
+    function Car(name, model) {
+        this.carName = name;
+        this.carModel = model;
+    }
+    Car.prototype.carDetails = function () {
+        console.log("".concat(this.carName, " and ").concat(this.carModel));
+    };
+    return Car;
+}());

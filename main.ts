@@ -77,3 +77,22 @@ let p = {
 };
 
 fullName(p);
+
+
+// class
+
+class Car{
+    carName:string;
+    carModel:number;
+
+    constructor(name:string, model:number){
+        this.carName=name
+        this.carModel=model;
+    }
+
+    carDetails(){
+        console.log(`${this.carName} and ${this.carModel}`)
+    }
+}
+
+  
