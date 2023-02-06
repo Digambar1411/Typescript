@@ -95,4 +95,11 @@ class Car{
     }
 }
 
-  
+
+//instance of class
+let car1 = new Car("TATA", 1000)
+let car2 = new Car("Mahindra",200);
+
+console.log(car1);
+console.log(car2);
+

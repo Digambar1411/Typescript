@@ -66,3 +66,7 @@ var Car = /** @class */ (function () {
     };
     return Car;
 }());
+var car1 = new Car("TATA", 1000);
+var car2 = new Car("Mahindra", 200);
+console.log(car1);
+console.log(car2);
