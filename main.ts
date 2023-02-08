@@ -97,9 +97,59 @@ class Car{
 
 
 //instance of class
-let car1 = new Car("TATA", 1000)
+let car1 = new Car("Tata", 1000)
 let car2 = new Car("Mahindra",200);
 
 console.log(car1);
 console.log(car2);
+
+
+
+// Array of objects created using class
+
+let cars:Car[]=[];  // objects created using class "Car" only can be added in Array of Cars
+
+cars.push(car1);
+cars.push(car2);
+
+
+console.log(cars)
+
+cars.forEach(car=>console.log(car.carName="sumit", car.carModel));
+
+// Access Modifier
+
+// private : propety can be access and modified only iniside the class
+// public  : property can be accessed and modified both inside and outside of the class
+// protected  : property can be accesed within class and instance of class
+
+class demo{
+	 public x:number;
+	 private y:number;
+	 protected z:number;
+
+	constructor(a:number, b:number, c:number){
+		this.x=a;
+		this.y=b;
+		this.z=c;
+	}
+
+	getDetails(){
+		return this.x+this.y+this.z;
+	}
+}
+
+const demo1 = new demo(5,6,8);
+
+// demo1.x  accesible
+// demo1.y not accesible
+// demo1.z not accesible
+
+// subclass
+class extendedDemo extends demo{
+	getPrivateMembers(){
+		// only x and z are accesible not y
+	
+	}
+} 
 
