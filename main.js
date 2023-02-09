@@ -113,3 +113,27 @@ class Greet {
 }
 let greet1 = new Greet("initialmesage");
 console.log(greet1.modifyMessage());
+// Generics
+function test1(val) {
+    return val;
+}
+console.log(test1(6));
+console.log(test1("high"));
+console.log(test1(true));
+function test2(val) {
+    return val;
+}
+console.log(test2("fd"));
+console.log(test2(6));
+// generics with function 
+function test(val) {
+    return val;
+}
+console.log(test(4));
+console.log(test("4"));
+console.log(test(true));
+const userData = {
+    name: "ram",
+    age: 5
+};
+console.log(userData);

@@ -153,7 +153,6 @@ class extendedDemo extends demo{
 	}
 } 
 
-
 // readOnly modifier
 
 class Greet{
@@ -172,3 +171,45 @@ class Greet{
 
 let greet1 = new Greet("initialmesage")
 console.log(greet1.modifyMessage());
+
+// Generics
+function test1(val:number | string | boolean):number | string | boolean{
+	return val
+}
+
+console.log(test1(6));
+console.log(test1("high"));
+console.log(test1(true));
+
+function test2 (val:any) :any{
+	return val
+}
+
+console.log(test2("fd"));
+console.log(test2(6));
+
+
+
+// generics with function 
+
+function test<T>(val:T):T{
+	return val
+}
+
+console.log(test(4));
+console.log(test("4"));
+console.log(test(true));
+
+// generics with interface 
+
+interface data<X,Y>{
+	name:X;
+	age:Y
+}
+
+const userData: data<string,number>={
+	name:"ram",
+	age:5
+}
+
+console.log(userData)
