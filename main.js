@@ -137,3 +137,15 @@ const userData = {
     age: 5
 };
 console.log(userData);
+// generics with class
+class DemoClass {
+    constructor(a, b) {
+        this.uName = a;
+        this.age = b;
+    }
+    getPersonDetails() {
+        console.log(`${this.uName} +${this.age}`);
+    }
+}
+let person1 = new DemoClass("mahesh", 35);
+let person2 = new DemoClass(25, "mahesh");

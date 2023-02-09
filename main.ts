@@ -213,3 +213,23 @@ const userData: data<string,number>={
 }
 
 console.log(userData)
+
+
+// generics with class
+
+class DemoClass <A,B>{
+	uName:A;
+	age:B
+
+	constructor(a:A, b:B){
+		this.uName=a;
+		this.age=b
+	}
+
+	getPersonDetails(){
+		console.log(`${this.uName} +${this.age}`)
+	}
+}
+
+let person1 = new DemoClass("mahesh",35);
+let person2 = new DemoClass(25,"mahesh");
