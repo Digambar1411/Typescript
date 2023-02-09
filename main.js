@@ -100,3 +100,16 @@ class extendedDemo extends demo {
         // only x and z are accesible not y
     }
 }
+// readOnly modifier
+class Greet {
+    constructor(message) {
+        this.msg = message;
+    }
+    modifyMessage() {
+        console.log(this.msg);
+        // this.msg="modified message"  cannot modifiy msg as its only readonly
+        return this.msg;
+    }
+}
+let greet1 = new Greet("initialmesage");
+console.log(greet1.modifyMessage());

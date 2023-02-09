@@ -153,3 +153,22 @@ class extendedDemo extends demo{
 	}
 } 
 
+
+// readOnly modifier
+
+class Greet{
+	readonly msg:string;
+
+	constructor (message:string){
+		this.msg=message;
+	}
+
+	modifyMessage(){
+		console.log(this.msg)
+		// this.msg="modified message"  cannot modifiy msg as its only readonly
+		return this.msg
+	}
+}
+
+let greet1 = new Greet("initialmesage")
+console.log(greet1.modifyMessage());
