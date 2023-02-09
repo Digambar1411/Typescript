@@ -149,3 +149,16 @@ class DemoClass {
 }
 let person1 = new DemoClass("mahesh", 35);
 let person2 = new DemoClass(25, "mahesh");
+// Generic constaints
+function anotherFunction(val1, val2) {
+    return {
+        val1, val2
+    };
+}
+console.log(anotherFunction(3, 5));
+function anotherFunction1(val1, val2) {
+    return {
+        val1, val2
+    };
+}
+console.log(anotherFunction1(3, { type: "NoSQL", dbName: "mongoDB" }));

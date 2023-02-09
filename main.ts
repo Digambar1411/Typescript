@@ -233,3 +233,25 @@ class DemoClass <A,B>{
 
 let person1 = new DemoClass("mahesh",35);
 let person2 = new DemoClass(25,"mahesh");
+
+
+// Generic constaints
+function anotherFunction<T,U extends number>(val1:T,val2:U):object{
+	return {
+		val1, val2
+	}
+}
+console.log(anotherFunction(3,5))
+
+
+interface database{
+	type:string;
+	dbName:string
+}
+
+function anotherFunction1<T,U extends database>(val1:T,val2:U):object{
+	return {
+		val1, val2
+	}
+}
+console.log(anotherFunction1(3,{type:"NoSQL", dbName:"mongoDB"}))
