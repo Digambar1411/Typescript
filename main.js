@@ -162,3 +162,15 @@ function anotherFunction1(val1, val2) {
     };
 }
 console.log(anotherFunction1(3, { type: "NoSQL", dbName: "mongoDB" }));
+// generic constraints with class
+class Student {
+    constructor(id, name) {
+        this.id = id;
+        this.studentName = name;
+    }
+}
+function display(obj) {
+    console.log(`${obj.id},${obj.studentName}`);
+}
+let st = new Student(2, "mahesh");
+display(st);

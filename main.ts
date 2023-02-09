@@ -255,3 +255,22 @@ function anotherFunction1<T,U extends database>(val1:T,val2:U):object{
 	}
 }
 console.log(anotherFunction1(3,{type:"NoSQL", dbName:"mongoDB"}))
+
+// generic constraints with class
+
+class Student{
+	id:number;
+	studentName:string;
+
+	constructor(id:number, name:string){
+		this.id=id;
+		this.studentName=name;
+	}
+}
+
+function display<T extends Student>(obj:T){
+	console.log(`${obj.id},${obj.studentName}`)
+}
+let st = new Student(2,"mahesh")
+display(st);
+
