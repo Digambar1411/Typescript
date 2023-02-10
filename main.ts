@@ -192,7 +192,7 @@ console.log(test2(6));
 
 // generics with function 
 
-function test<T>(val:T):T{
+function test<Y>(val:Y):Y{
 	return val
 }
 
@@ -202,14 +202,14 @@ console.log(test(true));
 
 // generics with interface 
 
-interface data<X,Y>{
-	name:X;
+interface data<Y>{
+	name:Y;
 	age:Y
 }
 
-const userData: data<string,number>={
+const userData: data<string>={
 	name:"ram",
-	age:5
+	age:"5"
 }
 
 console.log(userData)
@@ -235,7 +235,7 @@ let person1 = new DemoClass("mahesh",35);
 let person2 = new DemoClass(25,"mahesh");
 
 
-// Generic constaints
+// Generic constraints
 function anotherFunction<T,U extends number>(val1:T,val2:U):object{
 	return {
 		val1, val2
@@ -274,3 +274,42 @@ function display<T extends Student>(obj:T){
 let st = new Student(2,"mahesh")
 display(st);
 
+
+// typeof type operator
+
+console.log( typeof "mahesh")
+
+let s = "string";
+let n : typeof s;
+
+function f(){
+	return { x:"10", y:2}
+}
+
+type p = ReturnType<typeof f>
+console.log(p)
+
+// keyof type operator 
+
+type Point ={ x:number, y:string};
+type S = keyof Point
+
+type Arrayish = {[n:number]:string};
+type A = keyof Arrayish;
+
+
+// template literals types
+type msg ="world"
+
+type greeting = `Hello ${msg}`
+
+
+type email = "gamil"| "outlook"
+type unionEmail =`${email}_id`
+
+// string manipulation
+type greeting1 = "Hellow World";
+type greeting2_msg = Lowercase<greeting1>
+type greeting3_msg = Uppercase<greeting1>
+type greeting4_msg = Capitalize<greeting1>
+type greeting5_msg = Uncapitalize<greeting1>

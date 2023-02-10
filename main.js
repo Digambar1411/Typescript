@@ -134,7 +134,7 @@ console.log(test("4"));
 console.log(test(true));
 const userData = {
     name: "ram",
-    age: 5
+    age: "5"
 };
 console.log(userData);
 // generics with class
@@ -149,7 +149,7 @@ class DemoClass {
 }
 let person1 = new DemoClass("mahesh", 35);
 let person2 = new DemoClass(25, "mahesh");
-// Generic constaints
+// Generic constraints
 function anotherFunction(val1, val2) {
     return {
         val1, val2
