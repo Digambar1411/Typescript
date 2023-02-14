@@ -93,7 +93,7 @@ var cars = []; // objects created using class "Car" only can be added in Array o
 cars.push(car1);
 cars.push(car2);
 // console.log(cars)
-cars.forEach(function (car) { return console.log(car.carName = "sumit", car.carModel); });
+cars.forEach(function (car) { return console.log((car.carName = "sumit"), car.carModel); });
 // Access Modifier
 // private : propety can be access and modified only iniside the class
 // public  : property can be accessed and modified both inside and outside of the class
@@ -150,7 +150,7 @@ function test2(val) {
 }
 // console.log(test2("fd"));
 // console.log(test2(6));
-// generics with function 
+// generics with function
 function test(val) {
     return val;
 }
@@ -218,9 +218,11 @@ var m = { name: "dig" };
 var z = { name: "dig" };
 m.name = "digambar";
 // z.name="digambar"  //Error
-// Types in TypeScript -custom types 
+// Types in TypeScript -custom types
 // 1. Union type
-var helloMsg = function (name) { return name; };
+var helloMsg = function (name) {
+    return name;
+};
 // console.log(helloMsg(3))   // gives error
 console.log(helloMsg("Good Evening"));
 console.log(helloMsg(undefined));
@@ -238,3 +240,22 @@ var input = {
     error: { message: "this is error" }
 };
 handleArtistResponse(input);
+var myData = ["mahesh", 5];
+function ABC(myInfo) {
+    return myInfo;
+}
+function XYZ(myData) {
+    return myData;
+}
+console.log(XYZ({ fname: "amr", lnam: "patil", address: "pune" }));
+console.log(ABC({ fname: "sumit", lnam: "patil", address: "delhi" }));
+// #4 implements
+// both interface and type can be implement same way
+var somePoints = /** @class */ (function () {
+    function somePoints() {
+        this.fname = "ram";
+        this.lnam = "patil";
+    }
+    return somePoints;
+}());
+var base = { x: 12, y: "string" };
