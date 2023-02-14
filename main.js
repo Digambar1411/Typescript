@@ -217,4 +217,24 @@ var name1 = foo; //foo only refers to type its not declared as value
 var m = { name: "dig" };
 var z = { name: "dig" };
 m.name = "digambar";
-z.name = "digambar"; //Error
+// z.name="digambar"  //Error
+// Types in TypeScript -custom types 
+// 1. Union type
+var helloMsg = function (name) { return name; };
+// console.log(helloMsg(3))   // gives error
+console.log(helloMsg("Good Evening"));
+console.log(helloMsg(undefined));
+var handleArtistResponse = function (response) {
+    if (response.error) {
+        console.log(response.error.message);
+    }
+    else {
+        console.log(response.artists);
+    }
+};
+var input = {
+    artists: [{ name: "sumit" }],
+    success: true,
+    error: { message: "this is error" }
+};
+handleArtistResponse(input);

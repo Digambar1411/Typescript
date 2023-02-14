@@ -355,6 +355,54 @@ type foo2=Readonly<foo1>
 let m:foo1={name:"dig"}
 let z:foo2={name:"dig"}
 m.name="digambar"
-z.name="digambar"  //Error
+// z.name="digambar"  //Error
 
+
+// Types in TypeScript -custom types 
+
+// 1. Union type
+
+const helloMsg =(name:string| undefined)=>{return name}
+
+// console.log(helloMsg(3))   // gives error
+console.log(helloMsg("Good Evening"))
+console.log(helloMsg(undefined))
+
+
+// 2.Intersection type
+
+
+interface ErrorHandling{
+	success:boolean,
+	error?:{message:string}
+}
+
+interface artistsData{
+	artists:{name:string}[]
+}
+
+interface artworksData{
+	artwork:{title:string}[]
+}
+
+type artworksResponse = artworksData & ErrorHandling
+type artistsResponse = artistsData & ErrorHandling
+
+const handleArtistResponse =(response:artistsResponse)=>{
+	if(response.error){
+		console.log(response.error.message)
+	}
+	else{
+		console.log(response.artists)
+	}
+}
+
+let input={
+	artists:[{name:"sumit"}],
+	success:true,
+	error:{message:"this is error"}
+
+}
+
+handleArtistResponse(input)
 
