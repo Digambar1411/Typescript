@@ -1,24 +1,42 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-let name = "digambar welcome back to the team";
+// export {}; //tst treats this file as module instaed of script
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+exports.__esModule = true;
+// import {hello, good  from "./hello";
+var hello_1 = require("./hello");
+var name = "digambar welcome back to the team";
 // console.log(name);
 // variable declaration
-let x = 10;
-let y = 5;
-const title = "Codevolution";
+var x = 10;
+var y = 5;
+var title = "Codevolution";
 // variable types
-let isBegginer = true;
-let total = 100;
-let place = "Belgaum";
-let sentence = `my tite is ${title}`;
-console.log(sentence);
-let list1 = [1, 2, 3, 54];
-let list2 = [11, 12, 13];
-console.log(list1);
-console.log(list2);
+var isBegginer = true;
+var total = 100;
+var place = "Belgaum";
+var sentence = "my tite is ".concat(title);
+// console.log(sentence);
+var list1 = [1, 2, 3, 54];
+var list2 = [11, 12, 13];
+// console.log(list1);
+// console.log(list2);
 // let words : string[] = [1,2,3,"great"]  //gives error during compilation
-let person = ["digamnar", 56];
-console.log(person);
+var person = ["digamnar", 56];
+// console.log(person);
 // enum
 var Color;
 (function (Color) {
@@ -26,17 +44,17 @@ var Color;
     Color[Color["Green"] = 1] = "Green";
     Color[Color["Blue"] = 2] = "Blue";
 })(Color || (Color = {}));
-let first = Color.Red;
-let second = Color.Green;
-console.log(first);
-console.log(second);
+var first = Color.Red;
+var second = Color.Green;
+// console.log(first);
+// console.log(second);
 // variable type unknown and any
-let myVariable = 10;
+var myVariable = 10;
 myVariable = "digambar";
 myVariable = true;
-let newVar = "digambar";
-newVar.toUpperCase(); // error  newVar of type unknown
-console.log(newVar.toUpperCase());
+var newVar = "digambar";
+// newVar.toUpperCase(); // error  newVar of type unknown
+// console.log((newVar as string).toUpperCase());
 // functions
 function add(num1, num2) {
     if (num2) {
@@ -46,131 +64,157 @@ function add(num1, num2) {
         return num1;
     }
 }
-console.log(add(4, 5));
 function fullName(person) {
-    console.log(`${person.firstName} ${person.lastName}`);
+    console.log("".concat(person.firstName, " ").concat(person.lastName));
 }
-let p = {
+var p = {
     firstName: "Digambar",
-    lastName: "Deshawal",
+    lastName: "Deshawal"
 };
-fullName(p);
+// fullName(p);
 // class
-class Car {
-    constructor(name, model) {
+var Car = /** @class */ (function () {
+    function Car(name, model) {
         this.carName = name;
         this.carModel = model;
     }
-    carDetails() {
-        console.log(`${this.carName} and ${this.carModel}`);
-    }
-}
+    Car.prototype.carDetails = function () {
+        console.log("".concat(this.carName, " and ").concat(this.carModel));
+    };
+    return Car;
+}());
 //instance of class
-let car1 = new Car("Tata", 1000);
-let car2 = new Car("Mahindra", 200);
-console.log(car1);
-console.log(car2);
+var car1 = new Car("Tata", 1000);
+var car2 = new Car("Mahindra", 200);
+// console.log(car1);
+// console.log(car2);
 // Array of objects created using class
-let cars = []; // objects created using class "Car" only can be added in Array of Cars
+var cars = []; // objects created using class "Car" only can be added in Array of Cars
 cars.push(car1);
 cars.push(car2);
-console.log(cars);
-cars.forEach(car => console.log(car.carName = "sumit", car.carModel));
+// console.log(cars)
+cars.forEach(function (car) { return console.log(car.carName = "sumit", car.carModel); });
 // Access Modifier
 // private : propety can be access and modified only iniside the class
 // public  : property can be accessed and modified both inside and outside of the class
 // protected  : property can be accesed within class and instance of class
-class demo {
-    constructor(a, b, c) {
+var demo = /** @class */ (function () {
+    function demo(a, b, c) {
         this.x = a;
         this.y = b;
         this.z = c;
     }
-    getDetails() {
+    demo.prototype.getDetails = function () {
         return this.x + this.y + this.z;
-    }
-}
-const demo1 = new demo(5, 6, 8);
+    };
+    return demo;
+}());
+var demo1 = new demo(5, 6, 8);
 // demo1.x  accesible
 // demo1.y not accesible
 // demo1.z not accesible
 // subclass
-class extendedDemo extends demo {
-    getPrivateMembers() {
-        // only x and z are accesible not y
+var extendedDemo = /** @class */ (function (_super) {
+    __extends(extendedDemo, _super);
+    function extendedDemo() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
-}
+    extendedDemo.prototype.getPrivateMembers = function () {
+        // only x and z are accesible not y
+    };
+    return extendedDemo;
+}(demo));
 // readOnly modifier
-class Greet {
-    constructor(message) {
+var Greet = /** @class */ (function () {
+    function Greet(message) {
         this.msg = message;
     }
-    modifyMessage() {
+    Greet.prototype.modifyMessage = function () {
         console.log(this.msg);
         // this.msg="modified message"  cannot modifiy msg as its only readonly
         return this.msg;
-    }
-}
-let greet1 = new Greet("initialmesage");
-console.log(greet1.modifyMessage());
+    };
+    return Greet;
+}());
+var greet1 = new Greet("initialmesage");
+// console.log(greet1.modifyMessage());
 // Generics
 function test1(val) {
     return val;
 }
-console.log(test1(6));
-console.log(test1("high"));
-console.log(test1(true));
+// console.log(test1(6));
+// console.log(test1("high"));
+// console.log(test1(true));
 function test2(val) {
     return val;
 }
-console.log(test2("fd"));
-console.log(test2(6));
+// console.log(test2("fd"));
+// console.log(test2(6));
 // generics with function 
 function test(val) {
     return val;
 }
-console.log(test(4));
-console.log(test("4"));
-console.log(test(true));
-const userData = {
+var userData = {
     name: "ram",
     age: "5"
 };
 console.log(userData);
 // generics with class
-class DemoClass {
-    constructor(a, b) {
+var DemoClass = /** @class */ (function () {
+    function DemoClass(a, b) {
         this.uName = a;
         this.age = b;
     }
-    getPersonDetails() {
-        console.log(`${this.uName} +${this.age}`);
-    }
-}
-let person1 = new DemoClass("mahesh", 35);
-let person2 = new DemoClass(25, "mahesh");
+    DemoClass.prototype.getPersonDetails = function () {
+        console.log("".concat(this.uName, " +").concat(this.age));
+    };
+    return DemoClass;
+}());
+var person1 = new DemoClass("mahesh", 35);
+var person2 = new DemoClass(25, "mahesh");
 // Generic constraints
 function anotherFunction(val1, val2) {
     return {
-        val1, val2
+        val1: val1,
+        val2: val2
     };
 }
 console.log(anotherFunction(3, 5));
 function anotherFunction1(val1, val2) {
     return {
-        val1, val2
+        val1: val1,
+        val2: val2
     };
 }
 console.log(anotherFunction1(3, { type: "NoSQL", dbName: "mongoDB" }));
 // generic constraints with class
-class Student {
-    constructor(id, name) {
+var Student = /** @class */ (function () {
+    function Student(id, name) {
         this.id = id;
         this.studentName = name;
     }
-}
+    return Student;
+}());
 function display(obj) {
-    console.log(`${obj.id},${obj.studentName}`);
+    console.log("".concat(obj.id, ",").concat(obj.studentName));
 }
-let st = new Student(2, "mahesh");
+var st = new Student(2, "mahesh");
 display(st);
+// typeof type operator
+console.log(typeof "mahesh");
+var s = "string";
+var n;
+function f() {
+    return { x: "10", y: 2 };
+}
+// modules
+(0, hello_1.hello)();
+// good();
+(0, hello_1.good)();
+var foo;
+foo = "i am a string";
+var name1 = foo; //foo only refers to type its not declared as value
+var m = { name: "dig" };
+var z = { name: "dig" };
+m.name = "digambar";
+z.name = "digambar"; //Error

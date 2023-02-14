@@ -1,4 +1,7 @@
-export {}; //tst treats this file as module instaed of script
+// export {}; //tst treats this file as module instaed of script
+
+// import {hello, good  from "./hello";
+import {hello, good as better} from "./hello";
 let name = "digambar welcome back to the team";
 // console.log(name);
 
@@ -12,18 +15,18 @@ let isBegginer: boolean = true;
 let total: number = 100;
 let place: string = "Belgaum";
 let sentence: string = `my tite is ${title}`;
-console.log(sentence);
+// console.log(sentence);
 
 let list1: number[] = [1, 2, 3, 54];
 let list2: Array<number> = [11, 12, 13];
 
-console.log(list1);
-console.log(list2);
+// console.log(list1);
+// console.log(list2);
 
 // let words : string[] = [1,2,3,"great"]  //gives error during compilation
 
 let person: [string, number] = ["digamnar", 56];
-console.log(person);
+// console.log(person);
 
 // enum
 
@@ -34,8 +37,8 @@ enum Color {
 }
 let first: Color = Color.Red;
 let second: Color = Color.Green;
-console.log(first);
-console.log(second);
+// console.log(first);
+// console.log(second);
 
 // variable type unknown and any
 
@@ -45,8 +48,8 @@ myVariable = true;
 
 let newVar: unknown = "digambar";
 
-newVar.toUpperCase(); // error  newVar of type unknown
-console.log((newVar as string).toUpperCase());
+// newVar.toUpperCase(); // error  newVar of type unknown
+// console.log((newVar as string).toUpperCase());
 
 // functions
 function add(num1: number, num2: number): number {
@@ -57,7 +60,7 @@ function add(num1: number, num2: number): number {
 	}
 }
 
-console.log(add(4, 5));
+// console.log(add(4, 5));
 // console.log(add(4));  //gives error during compilation
 
 
@@ -76,7 +79,7 @@ let p = {
 	lastName: "Deshawal",
 };
 
-fullName(p);
+// fullName(p);
 
 
 // class
@@ -100,8 +103,8 @@ class Car{
 let car1 = new Car("Tata", 1000)
 let car2 = new Car("Mahindra",200);
 
-console.log(car1);
-console.log(car2);
+// console.log(car1);
+// console.log(car2);
 
 
 
@@ -113,7 +116,7 @@ cars.push(car1);
 cars.push(car2);
 
 
-console.log(cars)
+// console.log(cars)
 
 cars.forEach(car=>console.log(car.carName="sumit", car.carModel));
 
@@ -170,23 +173,23 @@ class Greet{
 }
 
 let greet1 = new Greet("initialmesage")
-console.log(greet1.modifyMessage());
+// console.log(greet1.modifyMessage());
 
 // Generics
 function test1(val:number | string | boolean):number | string | boolean{
 	return val
 }
 
-console.log(test1(6));
-console.log(test1("high"));
-console.log(test1(true));
+// console.log(test1(6));
+// console.log(test1("high"));
+// console.log(test1(true));
 
 function test2 (val:any) :any{
 	return val
 }
 
-console.log(test2("fd"));
-console.log(test2(6));
+// console.log(test2("fd"));
+// console.log(test2(6));
 
 
 
@@ -196,9 +199,9 @@ function test<Y>(val:Y):Y{
 	return val
 }
 
-console.log(test(4));
-console.log(test("4"));
-console.log(test(true));
+// console.log(test(4));
+// console.log(test("4"));
+// console.log(test(true));
 
 // generics with interface 
 
@@ -282,17 +285,19 @@ console.log( typeof "mahesh")
 let s = "string";
 let n : typeof s;
 
+
 function f(){
 	return { x:"10", y:2}
 }
 
-type p = ReturnType<typeof f>
-console.log(p)
+type p1 = ReturnType<typeof f>
+
 
 // keyof type operator 
 
 type Point ={ x:number, y:string};
 type S = keyof Point
+
 
 type Arrayish = {[n:number]:string};
 type A = keyof Arrayish;
@@ -304,7 +309,7 @@ type msg ="world"
 type greeting = `Hello ${msg}`
 
 
-type email = "gamil"| "outlook"
+type email = "gmail"| "outlook"
 type unionEmail =`${email}_id`
 
 // string manipulation
@@ -313,3 +318,43 @@ type greeting2_msg = Lowercase<greeting1>
 type greeting3_msg = Uppercase<greeting1>
 type greeting4_msg = Capitalize<greeting1>
 type greeting5_msg = Uncapitalize<greeting1>
+
+// indexed access types
+
+type player ={name:string, age:number, alive : boolean}
+type Age =player["age"]
+type  I1 = player["name"| "age"]
+type I2 = player [ keyof player]
+
+// modules
+
+hello();
+// good();
+better();
+
+
+// declarative scope
+
+type foo={
+	title:string
+}
+
+let foo:string;
+foo="i am a string"
+
+let name1=foo   //foo only refers to type its not declared as value
+// console.log(foo)
+// console.log(name1)
+type foo1 ={
+	name:string
+}
+
+// Readonly
+type foo2=Readonly<foo1>
+
+let m:foo1={name:"dig"}
+let z:foo2={name:"dig"}
+m.name="digambar"
+z.name="digambar"  //Error
+
+
