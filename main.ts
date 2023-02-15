@@ -562,3 +562,58 @@ function getProperty<T extends User, K extends keyof T>(obj:T,key:K){
 console.log(getProperty(userData1,"address"))
 console.log(getProperty(userData1,"age"))
 
+// mapped types
+type OptionFlags<Type>={
+	[Property in keyof Type]:boolean
+}
+
+type FutureFlag={
+	name:string
+	id:number
+}
+
+type FutureOptions = OptionFlags<FutureFlag>
+
+
+// Mapping modifires 
+// Removes 'readonly' attributes from a type's properties
+type CreateMutable<Type>={
+	-readonly [Property in keyof Type]:Type[Property]
+}
+
+type ReadonlyOject={
+	readonly name?:string
+	readonly id?:number
+}
+
+type ConvertedToMutable = CreateMutable<ReadonlyOject>
+
+
+// Removes 'optional' attributes from a type's properties
+type RemoveOptional<Type>={
+	[Property in keyof Type]-?:Type[Property]
+}
+
+type RemovedOptional = RemoveOptional<ReadonlyOject>
+
+// Key Remapping via as
+type Getters<Type> = {
+ [property in keyof Type as `get${Capitalize<string & property>}`]:()=>Type[property]
+}
+ 
+type Person2 ={
+    name: string;
+    age: number;
+    location: string;
+	addr:string
+}
+ 
+type LazyPerson = Getters<Person2>;
+
+// filter :  Remove the 'age' property
+
+type RemoveAgeProperty<Type>={
+	[property in keyof Type as Exclude<property ,"age">]:Type[property]
+}
+
+type AgeRemovedPerson = RemoveAgeProperty<Person2>
