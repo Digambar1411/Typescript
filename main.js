@@ -90,8 +90,8 @@ var car2 = new Car("Mahindra", 200);
 // console.log(car2);
 // Array of objects created using class
 var cars = []; // objects created using class "Car" only can be added in Array of Cars
-cars.push(car1);
-cars.push(car2);
+// cars.push(car1);
+// cars.push(car2);
 // console.log(cars)
 cars.forEach(function (car) { return console.log((car.carName = "sumit"), car.carModel); });
 // Access Modifier
@@ -179,14 +179,13 @@ function anotherFunction(val1, val2) {
         val2: val2
     };
 }
-console.log(anotherFunction(3, 5));
 function anotherFunction1(val1, val2) {
     return {
         val1: val1,
         val2: val2
     };
 }
-console.log(anotherFunction1(3, { type: "NoSQL", dbName: "mongoDB" }));
+// console.log(anotherFunction1(3, { type: "NoSQL", dbName: "mongoDB" }));
 // generic constraints with class
 var Student = /** @class */ (function () {
     function Student(id, name) {
@@ -199,9 +198,9 @@ function display(obj) {
     console.log("".concat(obj.id, ",").concat(obj.studentName));
 }
 var st = new Student(2, "mahesh");
-display(st);
+// display(st);
 // typeof type operator
-console.log(typeof "mahesh");
+// console.log(typeof "mahesh");
 var s = "string";
 var n;
 function f() {
@@ -223,9 +222,6 @@ m.name = "digambar";
 var helloMsg = function (name) {
     return name;
 };
-// console.log(helloMsg(3))   // gives error
-console.log(helloMsg("Good Evening"));
-console.log(helloMsg(undefined));
 var handleArtistResponse = function (response) {
     if (response.error) {
         console.log(response.error.message);
@@ -239,7 +235,6 @@ var input = {
     success: true,
     error: { message: "this is error" }
 };
-handleArtistResponse(input);
 var myData = ["mahesh", 5];
 function ABC(myInfo) {
     return myInfo;
@@ -247,8 +242,6 @@ function ABC(myInfo) {
 function XYZ(myData) {
     return myData;
 }
-console.log(XYZ({ fname: "amr", lnam: "patil", address: "pune" }));
-console.log(ABC({ fname: "sumit", lnam: "patil", address: "delhi" }));
 // #4 implements
 // both interface and type can be implement same way
 var somePoints = /** @class */ (function () {
@@ -269,8 +262,7 @@ var BaseClass = /** @class */ (function () {
 var DerivedClass = /** @class */ (function (_super) {
     __extends(DerivedClass, _super);
     function DerivedClass(userName) {
-        var _this = _super.call(this, 34) // used to invoke base class constructor
-         || this;
+        var _this = _super.call(this, 34) || this;
         _this.user = userName;
         return _this;
     }
@@ -280,7 +272,7 @@ var DerivedClass = /** @class */ (function (_super) {
     return DerivedClass;
 }(BaseClass));
 var classIntsance = new DerivedClass("digambar");
-classIntsance.getName();
+// classIntsance.getName()
 // overriding methods
 var Base1 = /** @class */ (function () {
     function Base1() {
@@ -307,5 +299,15 @@ var subclass1 = /** @class */ (function (_super) {
     return subclass1;
 }(Base1));
 var instance1 = new subclass1();
-instance1.greet1();
-instance1.greet1("digambar");
+// use case example
+var userData1 = {
+    name: "akash",
+    id: 5,
+    address: "bgm",
+    age: 12
+};
+function getProperty(obj, key) {
+    return obj[key];
+}
+console.log(getProperty(userData1, "address"));
+console.log(getProperty(userData1, "age"));

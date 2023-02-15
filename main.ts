@@ -107,8 +107,8 @@ let car2 = new Car("Mahindra", 200);
 
 let cars: Car[] = []; // objects created using class "Car" only can be added in Array of Cars
 
-cars.push(car1);
-cars.push(car2);
+// cars.push(car1);
+// cars.push(car2);
 
 // console.log(cars)
 
@@ -234,7 +234,7 @@ function anotherFunction<T, U extends number>(val1: T, val2: U): object {
 		val2,
 	};
 }
-console.log(anotherFunction(3, 5));
+// console.log(anotherFunction(3, 5));
 
 interface database {
 	type: string;
@@ -247,7 +247,7 @@ function anotherFunction1<T, U extends database>(val1: T, val2: U): object {
 		val2,
 	};
 }
-console.log(anotherFunction1(3, { type: "NoSQL", dbName: "mongoDB" }));
+// console.log(anotherFunction1(3, { type: "NoSQL", dbName: "mongoDB" }));
 
 // generic constraints with class
 
@@ -265,11 +265,11 @@ function display<T extends Student>(obj: T) {
 	console.log(`${obj.id},${obj.studentName}`);
 }
 let st = new Student(2, "mahesh");
-display(st);
+// display(st);
 
 // typeof type operator
 
-console.log(typeof "mahesh");
+// console.log(typeof "mahesh");
 
 let s = "string";
 let n: typeof s;
@@ -349,8 +349,8 @@ const helloMsg = (name: string | undefined) => {
 };
 
 // console.log(helloMsg(3))   // gives error
-console.log(helloMsg("Good Evening"));
-console.log(helloMsg(undefined));
+// console.log(helloMsg("Good Evening"));
+// console.log(helloMsg(undefined));
 
 // 2.Intersection type
 
@@ -381,10 +381,10 @@ const handleArtistResponse = (response: artistsResponse) => {
 let input = {
 	artists: [{ name: "sumit" }],
 	success: true,
-	error: { message: "this is error" },
+	error:{ message: "this is error" },
 };
 
-handleArtistResponse(input);
+// handleArtistResponse(input);
 
 // *********** Interface vs Types **********
 // #1. In terms of function and object
@@ -422,11 +422,13 @@ type Data = [string, number];
 const myData: Data = ["mahesh", 5];
 
 // #3 Extend
-// interface extend interface 
-interface point1 extends point {address: string;}
+// interface extend interface
+interface point1 extends point {
+	address: string;
+}
 
-// type extend type 
-type word1 = word & {address: string;};
+// type extend type
+type word1 = word & { address: string };
 
 function ABC(myInfo: point1) {
 	return myInfo;
@@ -436,34 +438,37 @@ function XYZ(myData: word1) {
 	return myData;
 }
 
-console.log(XYZ({ fname: "amr", lnam: "patil", address: "pune" }));
+// console.log(XYZ({ fname: "amr", lnam: "patil", address: "pune" }));
 
-console.log(ABC({ fname: "sumit", lnam: "patil", address: "delhi" }));
+// console.log(ABC({ fname: "sumit", lnam: "patil", address: "delhi" }));
 
-// interface extend 
+// interface extend
 
-type phone ={ mobile:number }
+type phone = { mobile: number };
 
-interface point2 extends phone {mobile: number}
+interface point2 extends phone {
+	mobile: number;
+}
 
 // type extend interface
 
-interface phone1 { mobile:number }
+interface phone1 {
+	mobile: number;
+}
 
-type word2 = phone1 & { address:string }
+type word2 = phone1 & { address: string };
 
 // #4 implements
 
 // both interface and type can be implement same way
 
-class somePoints implements point{
-	fname="ram"
-	lnam="patil"
+class somePoints implements point {
+	fname = "ram";
+	lnam = "patil";
 }
 
-
-// however class cannot imlememnt type of union type 
-type a1 ={fname:string } | {lname:string }
+// however class cannot imlememnt type of union type
+type a1 = { fname: string } | { lname: string };
 
 // class b1 implements a1{
 // 	fname="sumit1";
@@ -472,60 +477,88 @@ type a1 ={fname:string } | {lname:string }
 
 // #5 Merging
 
-// interface can be defined multiple times, and will be treated as a single interface  
-interface A2 { x:number}
-interface A2 { y:string}
+// interface can be defined multiple times, and will be treated as a single interface
+interface A2 {
+	x: number;
+}
+interface A2 {
+	y: string;
+}
 
-const base:A2 = {x:12,y:"string"}
-
+const base: A2 = { x: 12, y: "string" };
 
 // super calls
-class BaseClass{
-	
-	num:number
+class BaseClass {
+	num: number;
 
-	constructor(k:number){
-		this.num=k
-	}
-
-}
-
-class DerivedClass extends BaseClass{
-	user:string;
-
-	constructor(userName:string){
-		super(34)  // used to invoke base class constructor
-		this.user=userName
-	
-	}
-
-	getName(){
-		console.log(`${this.num} ${this.user}` )
+	constructor(k: number) {
+		this.num = k;
 	}
 }
 
-let classIntsance = new DerivedClass("digambar")
-classIntsance.getName()
+class DerivedClass extends BaseClass {
+	user: string;
+
+	constructor(userName: string) {
+		super(34); // used to invoke base class constructor
+		this.user = userName;
+	}
+
+	getName() {
+		console.log(`${this.num} ${this.user}`);
+	}
+}
+
+let classIntsance = new DerivedClass("digambar");
+// classIntsance.getName()
 
 // overriding methods
-class Base1{
-	age="dsvdsv"
-	greet(){
-		console.log("hello Geek")
+class Base1 {
+	age = "dsvdsv";
+	greet() {
+		console.log("hello Geek");
 	}
-	
 }
 
-class subclass1 extends Base1{
-	greet1(name?:string){
-		if(name===undefined){
-			this.greet()
-		}else{
-			console.log(`Hello ${name} ${this.age}`)
+class subclass1 extends Base1 {
+	greet1(name?: string) {
+		if (name === undefined) {
+			this.greet();
+		} else {
+			console.log(`Hello ${name} ${this.age}`);
 		}
 	}
 }
 
-let instance1 = new subclass1()
-instance1.greet1()
-instance1.greet1("digambar")
+let instance1 = new subclass1();
+// instance1.greet1()
+// instance1.greet1("digambar")
+
+// *** key of type operator ******
+
+type User = {
+	name: string;
+	id: number;
+};
+
+type userKeys = keyof User;  // "name" | "id"
+
+type firstKey = User["name"];  //string
+type secondtKey = User["id"];  //number
+
+
+// use case example
+let userData1={
+	name: "akash",
+	id: 5,
+	address:"bgm",
+	age:12
+}
+
+function getProperty<T extends User, K extends keyof T>(obj:T,key:K){
+	return obj[key]
+}
+
+console.log(getProperty(userData1,"address"))
+console.log(getProperty(userData1,"age"))
+
