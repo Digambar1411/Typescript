@@ -478,3 +478,31 @@ interface A2 { y:string}
 
 const base:A2 = {x:12,y:"string"}
 
+
+// super calls
+class BaseClass{
+	
+	num:number
+
+	constructor(k:number){
+		this.num=k
+	}
+
+}
+
+class DerivedClass extends BaseClass{
+	user:string;
+
+	constructor(userName:string){
+		super(34)  // used to invoke base class constructor
+		this.user=userName
+	
+	}
+
+	getName(){
+		console.log(`${this.num} ${this.user}` )
+	}
+}
+
+let classIntsance = new DerivedClass("digambar")
+classIntsance.getName()

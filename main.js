@@ -259,3 +259,25 @@ var somePoints = /** @class */ (function () {
     return somePoints;
 }());
 var base = { x: 12, y: "string" };
+// super calls
+var BaseClass = /** @class */ (function () {
+    function BaseClass(k) {
+        this.num = k;
+    }
+    return BaseClass;
+}());
+var DerivedClass = /** @class */ (function (_super) {
+    __extends(DerivedClass, _super);
+    function DerivedClass(userName) {
+        var _this = _super.call(this, 34) // used to invoke base class constructor
+         || this;
+        _this.user = userName;
+        return _this;
+    }
+    DerivedClass.prototype.getName = function () {
+        console.log("".concat(this.num, " ").concat(this.user));
+    };
+    return DerivedClass;
+}(BaseClass));
+var classIntsance = new DerivedClass("digambar");
+classIntsance.getName();
