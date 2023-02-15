@@ -281,3 +281,31 @@ var DerivedClass = /** @class */ (function (_super) {
 }(BaseClass));
 var classIntsance = new DerivedClass("digambar");
 classIntsance.getName();
+// overriding methods
+var Base1 = /** @class */ (function () {
+    function Base1() {
+        this.age = "dsvdsv";
+    }
+    Base1.prototype.greet = function () {
+        console.log("hello Geek");
+    };
+    return Base1;
+}());
+var subclass1 = /** @class */ (function (_super) {
+    __extends(subclass1, _super);
+    function subclass1() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    subclass1.prototype.greet1 = function (name) {
+        if (name === undefined) {
+            this.greet();
+        }
+        else {
+            console.log("Hello ".concat(name, " ").concat(this.age));
+        }
+    };
+    return subclass1;
+}(Base1));
+var instance1 = new subclass1();
+instance1.greet1();
+instance1.greet1("digambar");

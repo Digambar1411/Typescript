@@ -506,3 +506,26 @@ class DerivedClass extends BaseClass{
 
 let classIntsance = new DerivedClass("digambar")
 classIntsance.getName()
+
+// overriding methods
+class Base1{
+	age="dsvdsv"
+	greet(){
+		console.log("hello Geek")
+	}
+	
+}
+
+class subclass1 extends Base1{
+	greet1(name?:string){
+		if(name===undefined){
+			this.greet()
+		}else{
+			console.log(`Hello ${name} ${this.age}`)
+		}
+	}
+}
+
+let instance1 = new subclass1()
+instance1.greet1()
+instance1.greet1("digambar")
